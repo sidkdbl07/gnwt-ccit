@@ -30,7 +30,7 @@ Meteor.startup(() => {
   ////////////////////////////////
   // Regions
   if (Regions.find().count() === 0) {
-    var ft_simpson = Regions.insert({name: "Ft Simpson",
+    var ft_simpson = Regions.insert({name: "Fort Simpson",
                                      wind_direction: "NW",
                                      location: {type: 'Point', coordinates: [-121.3530, 61.8628]},
                                      snow_load_factors: {
@@ -38,7 +38,7 @@ Meteor.startup(() => {
                                        levels:[]
                                      }
     });
-    var ft_smith = Regions.insert({name: "Ft Smith",
+    var ft_smith = Regions.insert({name: "Fort Smith",
                                    wind_direction: "NW",
                                    location: {type: 'Point', coordinates: [-111.8849, 60.0055]},
                                    snow_load_factors: {
