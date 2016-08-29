@@ -49,6 +49,10 @@ Meteor.publish('region', function(id) {
   return Regions.find({_id: id});
 });
 
+Meteor.publish("tabularRegionSnowLoads", function() {
+  return Buildings.find({}, {fields: {_id:1, name: 1}});
+});
+
 Meteor.publish('usersInMyGroup', function() {
   if(Roles.userIsInRole(this.userId, ['admin'], Roles.GLOBAL_GROUP)) {
     return Meteor.users.find();

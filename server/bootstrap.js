@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 Meteor.startup(() => {
   // code to run on server at startup
   var default_users = [
-    {name: "Sid Kwakkel", email: "kwakkels@ae.ca", password: Meteor.settings.private.adminPass, roles: ['admin'], group: Roles.GLOBAL_GROUP},
+    {name: "Sid Kwakkel", email: "kwakkels@ae.ca", password: Meteor.settings.private.superAdminPass, roles: ['admin'], group: Roles.GLOBAL_GROUP},
     {name: "Charlie Administrator", email: "admin@some.com", password: "12345", roles: ['admin'], group: 'default_group'},
     {name: "Jonny FieldUser", email: "field@some.com", password: "12345", roles: ['field'], group: 'default_group'},
     {name: "Suzie Manager", email: "manager@some.com", password: "12345", roles: ['manager'], group: 'default_group'}
@@ -35,7 +35,9 @@ Meteor.startup(() => {
                                      location: {type: 'Point', coordinates: [-121.3530, 61.8628]},
                                      snow_load_factors: {
                                        thresholds: ['#1b5e20', '#689f38', '#cddc39', '#f57c00', '#b71c1c'],
-                                       levels:[]
+                                       levels:[
+                                         { year: new Date(1941,0,1), roof: 'standard', importance: {name: 'all', value: 1.0}, pitch: 0, factor: 1.92 }
+                                       ]
                                      }
     });
     var ft_smith = Regions.insert({name: "Fort Smith",
