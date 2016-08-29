@@ -1,0 +1,45 @@
+<template name="regionSnowLoads">
+  <nav>
+    <div class="nav-wrapper grey lighten-3" style="padding-left: 10px">
+      <div class="col s12">
+        <a href="{{pathFor 'regions'}}" class="breadcrumb grey-text text-darken-3">Regions</a>
+        <a href="{{pathFor 'regionEdit' _id=this._id }}" class="breadcrumb grey-text text-darken-3">{{name}}</a>
+        <span class="breadcrumb grey-text text-darken-3">Snow Load Factors</span>
+      </div>
+    </div>
+  </nav>
+  <div style="position: absolute; top: 78px; right: 100px;">
+    <a id="snow_load_help_button" data-activates='snow_load_help-slide' class="button-collapse btn waves-effect waves-light grey lighten-2 grey-text text-darken-3 tooltipped"  data-position="bottom" data-delay="50" data-tooltip="Help"><i class="material-icons">help</i></a>
+    <ul id='snow_load_help-slide' class="side-nav leftside-navigation">
+      <li>
+        <ul id="snow_load_help_collapsible" class="collapsible" data-collapsible="accordion">
+          <li>
+            <div class="collapsible-header">
+              <i class="material-icons">help</i>What are snow load factors?
+            </div>
+            <div class="collapsible-body">
+              Enter some text here
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header">
+              <i class="material-icons">vertical_align_center</i>Threshold Information
+            </div>
+            <div class="collapsible-body">
+            {{#each snow_load_factors.thresholds}}
+              <div class="chip" style="background-color: {{this}};">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+            {{/each}}
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="content">
+    <div class="row">
+      <div class="col s6">
+
+      </div>
+    </div>
+  </div>
+</template>

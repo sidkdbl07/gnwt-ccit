@@ -1,0 +1,55 @@
+<template name="users">
+  <nav>
+    <div class="nav-wrapper grey lighten-3" style="padding-left: 10px">
+      <div class="col s12">
+        <span class="breadcrumb grey-text text-darken-3">Users</span>
+      </div>
+    </div>
+  </nav>
+  <div style="position: absolute; top: 78px; right: 100px;">
+    {{#if isInRole 'admin' 'default_group'}}
+    <a href="{{pathFor 'userAdd'}}" class="btn waves-effect waves-light grey lighten-2 grey-text text-darken-3 tooltipped"  data-position="bottom" data-delay="50" data-tooltip="Add a User"><i class="material-icons">add</i></a>
+    {{/if}}
+  </div>
+  <div class="content">
+    <table width="100%" class="striped">
+      <thead>
+        <tr>
+          <th width="30%">Name</th>
+          <th width="30%">eMail</th>
+          <th width="30%">Role</th>
+          <th width="10%"></th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each all_users}}
+        <tr data-id="{{_id}}">
+          <td>{{profile.fullname}}</td>
+          <td>{{emails.[0].address}}</td>
+          <td>{{roles.default_group.[0]}}</td>
+          <td>
+            <a href="{{pathFor 'userEdit' _id=this._id }}" class="btn-floating waves-effect waves-light light-green" ><i class="material-icons">create</i></a>
+            <a class="btn-floating waves-effect waves-light red modal-trigger" href="#deleteUserModal" style="margin-left: 10px;"><i class="material-icons">delete</i></a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+  {{>deleteUserModal}}
+</template>
+
+<template name="deleteUserModal">
+  <input type="hidden" id="delete_user_id" value="" />
+  <div id="deleteUserModal" class="modal">
+    <div class="modal-content">
+      <h4>Warning</h4>
+      <p>Deleting a user cannot be undone!</p>
+      <p>All records associated with this user will be removed.</p>
+    </div>
+    <div class="modal-footer">
+      <a id="go-ahead-and-delete-user" href="#!" class="btn modal-action modal-close waves-effect red">Delete User</a>
+      <a href="#!" class="modal-action modal-close waves-effect btn-flat">Cancel</a>
+    </div>
+  </div>
+</template>

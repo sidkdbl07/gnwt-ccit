@@ -1,0 +1,3 @@
+div.dataTables_scrollBody {
+  height: calc(100% - 128px);
+}
