@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 Meteor.startup(() => {
   // code to run on server at startup
   var default_users = [
-    {name: "Sid Kwakkel", email: "kwakkels@ae.ca", password: "bondbond", roles: ['admin'], group: Roles.GLOBAL_GROUP},
+    {name: "Sid Kwakkel", email: "kwakkels@ae.ca", password: Meteor.settings.private.adminPass, roles: ['admin'], group: Roles.GLOBAL_GROUP},
     {name: "Charlie Administrator", email: "admin@some.com", password: "12345", roles: ['admin'], group: 'default_group'},
     {name: "Jonny FieldUser", email: "field@some.com", password: "12345", roles: ['field'], group: 'default_group'},
     {name: "Suzie Manager", email: "manager@some.com", password: "12345", roles: ['manager'], group: 'default_group'}
